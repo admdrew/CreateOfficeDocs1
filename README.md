@@ -8,9 +8,9 @@ Current implementation:
 
 Future:
 - CLI input
--- type(s)
--- size
--- images
+	- type(s)
+	- size
+	- images
 - expanded support
--- PowerPoint/Excel
--- 2003 format
+	- PowerPoint/Excel
+	- 2003 format
