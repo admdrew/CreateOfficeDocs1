@@ -12,7 +12,7 @@ namespace CreateOfficeDocs1 {
     class Program {
         //private static Random random = new Random((int)DateTime.Now.Ticks);//thanks to McAden
 
-        class Optionis {
+        class Options {
             // doc type
             [Option('t', "type", Required = true, HelpText = "Document type.")]
             public string opDocumentType { get; set; }
