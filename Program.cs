@@ -17,12 +17,12 @@ namespace CreateOfficeDocs1 {
             [Option('t', "type", Required = true, HelpText = "Document type.")]
             public string opDocumentType { get; set; }
 
-            // number of pages
+            // number of pages/length?
             //[Option('
 
             // images yes/no
  
-            // output file name
+            // output file name prefix
 
             // help
             [HelpOption]
@@ -30,6 +30,8 @@ namespace CreateOfficeDocs1 {
                 StringBuilder strUsage = new StringBuilder();
                 strUsage.AppendLine("CreatOfficeDocs");
                 strUsage.AppendLine("helpstuff");
+
+                return strUsage.ToString();
             }
         }
 
@@ -50,10 +52,27 @@ namespace CreateOfficeDocs1 {
             //MakeWordDoc(100);
             //MakeWordDoc(1000);
             //MakeWordDoc(10000);
+
+            MakeWordDoc();  // create a single 1-page file with no images
+
+            // Take input from Options
+            //
+
+            // fire off MakeWordDoc with input
+            //
         }
 
-        static void MakeWordDoc(int numPages) {
+        /* MakeWordDoc([int numPages], [int numFiles], [bool includeImages], [String fileNamePrefix])
+         * 
+         */
+        static int MakeWordDoc(
+                int numPages = 1,                   // Number of output pages
+                int numFiles = 1,                   // Number of output files
+                bool includeImages = false,         // Include embedded images.
+                String fileNamePrefix = "WordDoc"   // Prefix name of output file(s) 
+            ) {
             // make word application
+            int MakeWordDoc_success = 0;
             Application appWord = new Application();
 
             // make word doc
@@ -92,6 +111,8 @@ namespace CreateOfficeDocs1 {
             GC.Collect();
             GC.WaitForPendingFinalizers();
             GC.Collect();
+
+            return MakeWordDoc_success;
         }
     }
 }
